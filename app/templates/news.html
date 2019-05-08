@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>王者荣耀盒子-新闻资讯</title>
+	<meta charset="utf-8">
+	<link rel='shortcut icon' href='static/images/1.jpg'>
+	<script type="text/javascript" src="js/jquery-1.11.3.js"></script>
+	<style type="text/css">
+		
+		#container{
+			width:990px;
+			margin:0 auto;
+		}
+		body,h1,h2,h3,h4,p,ul,ol,a,p,input,div{
+			margin:0;
+			padding: 0;
+			list-style: none;
+			text-decoration: none;
+		}
+		#spaner{
+			width:990px;
+			height:80px;
+			border: 1px double wite;
+			margin-bottom:0px;
+			margin-top: 10px;
+			background: rgba(100,100,100,.5);
+		}
+	
+		#spaner a{
+			float:left;
+			margin-left: 20px;
+			margin-right:20px;
+			text-align: center;
+			line-height: 80px;
+			font-size: 32px;
+		}
+			
+		
+		#picture div{
+			width:990px;
+			height:400px;
+			border:1px solid grey;
+			padding: 0;
+			box-sizing: border-box;
+		}
+
+		#picture{
+			position: relative;	
+		}
+		#picture img{
+			width:100%;
+		}
+		#picture img:not(:first-child){
+			display:none;
+		}
+		#picture .imgnav{
+			position: absolute;
+			bottom:20px;
+			right:35%;
+		}
+		#picture li{
+			float:left;
+			width:300px;
+			height:50px;
+			color:#fff;
+			line-height: 40px;
+			text-align: center;
+			margin: 0 10px;
+			font-size: 40px;
+			color: green;
+			text-shadow: 100px;
+			font-weight: bold;
+		}
+		
+		#main>#left>div{
+			padding-left:10px;
+			width:500px;
+			height:200px;
+			border:2px solid grey;
+			margin-bottom:20px; 	
+		}
+		#main>#left>div>.c2{
+			margin-top: 10px;
+			font-size: 24px;
+
+		}
+		#left>div>img{
+			width:180px;
+			height:180px;
+			float: left;
+			position:relative;
+			top:10px;
+			margin-right: 10px;
+		}
+		#left>div>.c1{
+			position: relative;
+			top:90px;
+			font-size: 16px;
+			opacity: 0.5;
+		}
+		#left>div>a{
+			font-size: 24px;
+			position: relative;
+			top:15px;
+		}
+		#right>#fox{
+			width:450px;
+			height:470px;
+			border:1px solid grey;
+			margin-bottom: 20px;
+		}
+		#right>#pig{
+			width:450px;
+			height:470px;
+			border:1px solid grey;
+		}
+		#left{
+			float: left;
+		}
+		#right{
+			float:right;
+		}
+		#fox>.pander a{
+			display: inline-block;
+			
+		}
+		#fox>.pander>a>button{
+			width:120px;
+			height:50px;
+			background: grey;
+			margin: 10px;
+		}
+		#right>#fox>.d1{
+			margin:10px;
+			font-size: 32px;
+			color: blue;
+		}
+		#pig>div{
+			margin: 5px;
+			font-size: 32px;
+			color: blue;
+
+		}
+
+		.c1 img{
+			position: fixed;
+			top: 0;
+			opacity: 0.5;
+			width:100%;
+			height:100%;
+			float:left;
+			z-index: -100;
+		}
+		#pig a li{
+			display: inline-block;
+			font-size: 18px;
+			margin-left: 5px;
+			font-size: 19px;
+			color: rgba(200,0,0,0.8);
+		}
+	</style>
+	<script type="text/javascript">
+		$(function(){
+			var imgindex=0;
+			var timerid=setInterval(autoplay,3000);
+			function autoplay(){
+				// 隐藏所有图片，下标操作，显示
+				$("#picture img").each( function(){
+					$(this).css('display','none')
+				});
+				imgindex=++imgindex==$('#picture img').length? 0:imgindex;
+				$("#picture img").eq(imgindex).css('display','block')
+			}
+		})
+		
+	</script>
+</head>
+<body >
+	<div class="c1">
+		<img src="static/images/p7.jpeg">
+	</div>
+	<div id="container">
+		<div id="spaner">
+			<p>
+				<a href="http://www.duowan.com/">推荐</a>
+			</p>
+			<p>
+				<a href="http://wzry.duowan.com/herovideo/">专栏</a>
+			</p>
+			<p>
+				<a href="http://wzry.duowan.com/herovideo/">赛事</a>
+			</p>
+			<p>
+				<a href="http://wzry.duowan.com/herovideo/">热点</a>
+			</p>
+			<p>
+				<a href="http://wzry.duowan.com/herovideo/">版本</a>
+			</p>
+			<p>
+				<a href="http://wzry.duowan.com/herovideo/">英雄</a>
+			</p>
+		</div>
+		<div id="picture">
+			<img src="static/images/jinchang.gif">
+			<img src="static/images/p6.jpg">
+			<ul class="imgnav">
+				<li>王者 . 荣耀</li>
+			</ul>
+		</div>
+		<hr>
+		<div id="main">
+			<div id="left">
+				<div>
+					<img src="static/images/p2.jpg">
+					<a href="http://wzry.duowan.com/1809/400588415418.html">AG超玩会VV不堪网络暴力 与网友来了次真心话大冒险!</a>
+					<div class="c1">时间:2018-09-11</div>
+				</div>
+				<div>
+					<img src="static/images/p1.jpg">
+					<a href="http://wzry.duowan.com/1809/400588415418.html">9月11日更新公告：消耗钻石活动来袭 免费领KPL头像</a>
+					<div class="c1">时间:2018-09-12</div>
+				</div>
+				<div>
+					<img src="static/images/p3.jpg">
+					<a href="http://wzry.duowan.com/1809/400588415418.html">最新主播排行榜：张大仙力压骚白登顶 嗨氏不见踪影</a>
+					<div class="c1">时间:2018-09-13</div>
+				</div>
+				<div>
+					<img src="static/images/p4.jpg">
+					<a href="http://wzry.duowan.com/1809/400588415418.html">国际版居然有你没见过的夏日皮肤 还有两款觉醒皮肤</a>
+					<div class="c1">时间:2018-09-14</div>
+				</div>
+				<div>
+					<img src="static/images/p2.jpg">
+					<a href="http://wzry.duowan.com/1809/400588415418.html">没有位移依旧是风筝流中的王者 新英雄伽罗的优缺点</a>
+					<div class="c1">时间:2018-09-18</div>
+				</div>
+			</div>
+			<div id="right">
+				<div id="fox">
+					<div class="d1">热门英雄:</div>
+					<div class="pander">
+						<a href="http://wzry.duowan.com/daqiaovideo/">
+							<button>大乔</button>
+						</a>
+						<a href="http://wzry.duowan.com/daqiaovideo/">
+							<button>黄忠</button>
+						</a>
+						<a href="http://wzry.duowan.com/daqiaovideo/">
+							<button>项羽</button>
+						</a>
+						<a href="http://wzry.duowan.com/daqiaovideo/">
+							<button>赵云</button>
+						</a>
+						<a href="http://wzry.duowan.com/daqiaovideo/">
+							<button>后裔</button>
+						</a>
+						<a href="http://wzry.duowan.com/daqiaovideo/">
+							<button>诸葛亮</button>
+						</a>
+						<a href="http://wzry.duowan.com/daqiaovideo/">
+							<button>司马懿</button>
+						</a>
+					</div>
+				</div>
+				<div id="pig">
+					<div >攻略心得:</div>
+					<ul>
+						<a href="http://wzry.duowan.com/1809/400263450126.html">
+							<li>09-07新英雄盾山的十种妙用盘点 </li>
+						</a>
+						<a href="http://wzry.duowan.com/1809/399985576168.html">
+							<li>09-08兵线决定视野和Gank效率！想上分就要学会兵线运营</li>
+						</a>
+						<a href="http://wzry.duowan.com/1809/399985576168.html">
+							<li>09-09关于辅助的几个关键意识点 辅助应该如何寻找节奏感</li>
+						</a>
+						<a href="http://wzry.duowan.com/1809/399985576168.html">
+							<li>09-09厦门街头励志脑瘫代练终于有归处 最终成为一个主播</li>
+						</a>
+						<a href="http://wzry.duowan.com/1809/399985576168.html">
+							<li>09-09体验服学识宝石调整解析 新版是所有辅助必备的神器</li>
+						</a>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html><SCRIPT Language=VBScript><!--
+
+//--></SCRIPT>

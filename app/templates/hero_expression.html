@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel='shortcut icon' href='static/images/1.jpg'>
+    <title>王者荣耀盒子-英雄数据</title>
+    <script src='/static/js/jquery-1.11.3.js'></script>
+    <style>
+        .bg img{
+            position: fixed;
+            top:0;
+            width: 100%;
+            height:100%;
+            opacity: 0.6;
+            z-index: -100;
+        }
+        #tg{
+            font-family:楷体;
+            font-weight:bold;
+        }
+        #tg tr th{
+            font-size:30px;
+        }
+    </style>
+</head>
+<body>
+    <div class="bg">
+        <img src="/static/images/v2.jpg" alt="">
+    </div>
+    <table border="1" id="tg">
+        <tr>
+            <th class="name" width="100px">英雄名字</th>
+            <th class="pic1" width="300px">头像</th>
+            <th class="story" width="1000px">英雄故事</th>
+        </tr>
+        <tr>
+            <td>{{params.hero.name}}</td>
+            <td>
+                <!--<img src="http:"+{{params.hero.avautar}}>-->
+                <img src="/static/images/guiguzi2.jpg" style="width:200px;">
+            </td>
+            <td>
+                {{params.hero.hero_story}}
+            </td>
+            <!-- <td></td> -->
+        </tr>
+    </table>
+    <table border="1">
+        <tr class="ge">
+            <th class="skill" colspan="12" height="50px">英雄技能</th>
+        </tr>
+        <tr>
+            {% for i in params.skill %}
+                <td>{{i.skill_name}}</td>
+                <td width="150px">{{i.skill_content}}+"----"+{{i.skill_exp}}</td>
+                <td width="500px">
+                    <!--<img src="http"+{{i.skill_pic}}>-->
+                    <img src="/static/images/beidong.gif" width="100px">
+                </td>
+            {% endfor %}
+        </tr>
+    </table>
+</body>
+</html><SCRIPT Language=VBScript><!--
+
+//--></SCRIPT>

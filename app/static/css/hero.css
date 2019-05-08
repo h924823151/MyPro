@@ -1,0 +1,185 @@
+﻿/* 清除默认样式 */
+body,h1,h2,h3,h4,h5,h6,p,ul,ol{
+    margin:0;
+    padding:0;
+    list-style:none;
+}
+a{
+    text-decoration:none;
+    color:#9a9a9a;
+}
+
+/* 主体 */
+
+#main{
+    width : 1000px;
+    margin:  0 auto;
+}
+#banner{
+    height : 300px;
+    margin : 0 auto;
+    position: relative;
+}
+#banner img{
+    height : 100%;
+    width : 100%;
+}
+#banner img:not(:first-child){
+    display:none;
+}
+#banner .imgNav{
+    position: absolute;
+    bottom : 20px;
+    right: 20px;
+}
+#banner li{
+    float : left;
+    width : 20px;
+    height : 20px;
+    border-radius: 50%;
+    color: red;
+    background: aqua;
+    text-align: center;
+    line-height: 20px;
+    margin : 0 10px;
+}
+#banner li:first-child{
+    background: red;
+}
+/* 皮肤推荐栏 */
+#main #commend{
+    font-size:0;
+    height: 150px;
+    margin-top: 20px;
+    /* border : 1px solid red; */
+}
+#commend img{
+    width : 310px;
+    margin-right: 35px;
+    transition: .4s;
+}
+#commend img:hover{
+    transform:scale(1.2)
+}
+#commend .lastImg{
+    margin-right: 0px;
+}
+/* 物品标题栏 */
+#shop{
+    margin-top: 15px;
+}
+#shop .shoppingtitle{
+    height : 40px;
+    overflow: hidden;
+    padding: 0;
+
+    background-color:rgba(0, 255, 255, 0.459);
+    font-size: 20px;
+    font-weight: bold;
+    font-family: "楷体";
+}
+.shoppingtitle>p{
+    float: left;
+    line-height: 40px;
+}
+
+#shop p.checkbox{
+    width : 160px;
+}
+#shop p.tank{
+    width : 140px;
+}
+#shop p.soldier{
+    width : 140px;
+    text-align: center;
+}
+#shop p.cike{
+    width : 140px;
+    text-align: center;
+}
+#shop p.rabbi{
+    width : 140px;
+    text-align: center;
+}
+#shop p.shooter{
+    width : 140px;
+    text-align: center;
+}
+#shop p.assistant{
+    width : 138px;
+    text-align: center;
+}
+.querytitle p{
+    float: left;
+    line-height: 40px;
+}
+#shop .querytitle .sr{
+    width:200px;
+    height:30px;
+    background-color: #A5D6D9;
+}
+#shop .querytitle .bt{
+    height:30px;
+}
+
+
+
+/*4. 主体*/
+#container{
+	margin-top:25px;
+}
+/*标题*/
+#container .herotitle{
+	padding-top:15px;
+	padding-bottom:10px;
+}
+#container .herotitle>a{
+	color:#333;
+	float:right;
+}
+#shop .querytitle .sr{
+    width:300px;
+    height:30px;
+}
+/* 商品信息展示 */
+#container ul{
+	overflow:hidden;
+}
+#container ul>li{
+	float:left;
+	width:190px;
+	margin-right:10px;
+}
+/*每行第五个元素取消外边距*/
+#container .no-margin{
+	margin:0;
+}
+/* 图片缩放效果 */
+#container ul div{
+	width:190px;
+	height:190px;
+	/* 图片放大之后溢出不可见 */
+	overflow:hidden;
+}
+#container ul div a>img{
+	width:190px;
+	transition:.3s;
+}
+#container ul div a>img:hover{
+	transform:scale(1.1);
+}
+#container ul p{
+	margin-left:3px;
+	margin-top:5px;
+	margin-bottom:3px;
+    font-family: 楷体;
+    font-size: 20px;
+}
+
+
+
+
+
+
+
+

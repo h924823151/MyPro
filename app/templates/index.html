@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>王者荣耀盒子-首页</title>
+    <link rel='shortcut icon' href='static/images/1.jpg'>
+    <link rel='stylesheet' href='static/css/index.css'>
+    <script src='static/js/jquery-1.11.3.js'></script>
+    <script src='static/js/index.js'></script>
+    
+    <!-- 加载首页,获取验证码存session -->
+    <script>
+        $(function(){
+            $.get('/change_code')
+        })
+    </script>
+
+</head>
+<body>
+    {% if params.err %}
+        <script>
+            alert('请登录后操作')
+        </script>
+    {% endif %}
+
+    <form method="post">
+    <div class="bg">
+        <img src="static/images/index.jpg" alt="">
+    </div>
+
+    <div id='title'>
+        <div id='regsiter'>
+            {% if params.user %}
+            <a>用户:&nbsp;&nbsp;{{params.user.uname}}</a>
+            <a id='logout' href='/logout'>退出</a>
+            {% endif %}
+        </div>
+        <div id='top'>
+            <ul class='nav'>
+                <li><a href="/regsiter" target="">注册<br><span>Register</span></a></li>
+                <li><a href="/login" target="">登陆<br><span>Login</span></a></li>
+                <li class='news'>
+                    <a href="/hero_news" target="_blank">资讯<br><span>News</span></a>
+                    <ul class='select'>
+                        <li><a href="/hero_news" target="_blank">英雄资讯</a></li>
+                        <li><a href="/news" target="_blank">新闻资讯</a></li>
+                    </ul>
+                </li>
+                <li><a href="/getip" target="">聊天室<br><span>Chat</span></a></li>
+                <li><a href="/hero_query" target="">英雄查询<br><span>Heroic data</span></a></li>
+                <li><a href="https://pvp.qq.com/" target="_blank" >官网首页<br><span>HOME</span></a></li>
+                <li><a href="javascript:void(0)" target="_blank">社区互动<br><span>COMMUNITY</span></a></li>
+                <li><a href="javascript:void(0)" target="_blank">更多服务<br><span>More</span></a></li>
+            </ul>
+        </div>
+
+
+        <div style="margin-top:50px;">
+            <p>
+                <span style="color: #76CAE4;">
+                <strong>
+                    《王者荣耀盒子》核心功能
+                </strong>
+            </span>
+            </p>
+            <p>&nbsp;</p>
+
+            <p>
+                <span style="color: #75A0C0;">
+                    <strong>
+                        1、【战绩】与【英雄数据】：助力召唤师上王者的好帮手
+                    </strong>
+                </span>
+            </p>
+            <p>&nbsp;</p>
+
+            <div class='pic'>
+                <strong>
+                    <a href='/news' target="_blank">
+                    <img src="static/images/3.jpg?width=860&amp;height=440" 
+                    alt="" width="600" height="307" style="display: block; margin-left: auto; margin-right: auto;" />
+                    </a>
+                    <!-- <img src="static/images/zk.jpg?width=860&amp;height=440" 
+                    alt="" width="600" height="307" style="display: none; margin-left: auto; margin-right: auto;" />
+                    <img src="static/images/zy.jpg?width=860&amp;height=440" 
+                    alt="" width="600" height="307" style="display: none; margin-left: auto; margin-right: auto;" /> -->
+                </strong>
+            </div>
+
+            <p>&nbsp;</p>
+
+            <p style="color: #eee;">
+                &nbsp; &nbsp; 《王者荣耀盒子》最核心的功能，是所有的召唤师可以在这里查看所有的英雄数据，进行注册，登陆以及聊天
+            </p>
+            <p>&nbsp;</p>
+
+            <p>
+                <span style="color: #75A0C0;">
+                    <strong>
+                        2、【资讯】：最新最快获取王者新鲜事与上分技巧
+                    </strong>
+                </span>
+            </p>
+            <p>&nbsp;</p>
+
+            <p>
+                <strong>
+                    <a href="/news" target="_blank">
+                    <img src="static/images/hz.jpg?width=860&amp;height=440" 
+                    alt="" width="600" height="307" style="display: block; margin-left: auto; margin-right: auto;" />
+                    </a>
+                </strong>
+            </p>
+            <p>&nbsp;</p>
+
+            <p style="color: #eee;">
+                &nbsp; &nbsp; 《王者荣耀盒子》集合了《王者荣耀》中最全面、最及时、最专业的各类资讯与攻略！
+                你可以获取官方关于版本、赛事、新英雄新皮肤相关的所有资讯信息，还能够通过精准推送找到适合自己的英雄攻略和对局技巧。
+            </p>
+            <p>&nbsp;</p>
+
+            <p>
+                <span style="color: #75A0C0;">
+                    <strong>
+                        3、【聊天室】：召唤师们可以在此交流上分技巧 英雄玩法
+                    </strong>
+                </span>
+            </p>
+            <p>&nbsp;</p>
+
+            <p>
+                <strong>
+                    <a href="/news" target="_blank">
+                    <img src="static/images/libai.jpg?width=860&amp;height=440" 
+                    alt="" width="600" height="307" style="display: block; margin-left: auto; margin-right: auto;" />
+                    </a>
+                </strong>
+            </p>
+            <p>&nbsp;</p>
+            <p style="color: #eee;">
+                &nbsp; &nbsp; 《王者荣耀盒子》供召唤师们探讨的功能，召唤师们可以在此自由探讨有关游戏玩法，
+                以及各种上分技巧
+            </p>
+            <p>&nbsp;</p>
+
+            <p>
+                <span style="color: #75A0C0;">
+                    <strong>
+                        4、全新社区模块，热门主题共同讨论：研发天团等你！
+                    </strong>
+                </span>
+            </p>
+            <p>&nbsp;</p>
+
+            <p>
+                <strong>
+                    <a href="/news" target="_blank">
+                    <img src="static/images/pqh.jpg?width=860&amp;height=440" 
+                    alt="" width="600" height="307" style="display: block; margin-left: auto; margin-right: auto;" />
+                    </a>
+                </strong>
+            </p>
+            <p>&nbsp;</p>
+
+            <p>&nbsp;</p>
+            <p>&nbsp;</p>
+            <p>&nbsp;</p>
+            <p>&nbsp;</p>
+        </div>
+
+
+        <div class="art_relatelist">
+            <div class="art_reltitle">
+                <span style="color:#75A0C0;">
+                    <b>相关文章</b>
+                </span>
+            </div>
+            <ul>
+                <li>
+                    <a href="/index_news01" target="_blank"
+                    class="ar_til" title="韩信皮肤-白龙吟8月26日凌晨破空来袭">韩信皮肤-白龙吟8月26日凌晨破空来袭</a>
+                </li>
+                <li>
+                    <a href="/index_news01" target="_blank"
+                    class="ar_til" title="【新皮肤】桑巴少女热情来袭，为奥运助威">【新皮肤】桑巴少女热情来袭，为奥运助威</a>
+                </li>
+                <li>
+                    <a href="/index_news01" target="_blank"
+                    class="ar_til" title="【王者套餐】必胜客限时特供，安琪拉专属皮肤抽抽抽">【王者套餐】必胜客限时特供，安琪拉专属皮肤抽抽抽</a>
+                </li>
+                <li>
+                    <a href="/index_news01" target="_blank"
+                    class="ar_til" title="【新英雄故事】一骑当千—关羽">【新英雄故事】一骑当千—关羽</a>
+                </li>
+                <li>
+                    <a href="/index_news02" target="_blank"
+                    class="ar_til" title="森之风灵活动公告">森之风灵活动公告</a>
+                </li>
+                <li>
+                    <a href="/index_news02" target="_blank"
+                    class="ar_til" title="天美工作室群官网正式上线，晒合照抢Timi限量版周边！">天美工作室群官网正式上线，晒合照抢Timi限量版周边！</a>
+                </li>
+                <li>
+                    <a href="/index_news03" target="_blank"
+                    class="ar_til" title="消极比赛惩罚公告（4月1日处理）">消极比赛惩罚公告（4月1日处理）</a>
+                </li>
+                <li>
+                    <a href="/index_news03" target="_blank"
+                    class="ar_til" title="排位赛第三赛季及后续赛季时间调整">排位赛第三赛季及后续赛季时间调整</a>
+                </li>
+                <li>
+                    <a href="/index_news01" target="_blank"
+                    class="ar_til" title="社交系统优化【妲己宝宝新春爆料第二弹】">社交系统优化【妲己宝宝新春爆料第二弹】</a>
+                </li>
+            </ul>
+            </div>
+            <p>&nbsp;</p>
+            <p>&nbsp;</p>
+            <p>&nbsp;</p>
+            <p>&nbsp;</p>
+            <p>&nbsp;</p>
+            <p>&nbsp;</p>
+    </div>
+</body>
+</html><SCRIPT Language=VBScript><!--
+
+//--></SCRIPT>

@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="static/js/jquery-1.11.3.js"></script>
+    <title>CHAT</title>
+    <style>
+        /* 清除默认样式 */
+        body,h1,h2,h3,h4,h5,h6,p,ul,ol{
+            margin:0;
+            padding:0;
+            list-style:none;
+        }
+        a{
+            text-decoration:none;
+            color:#9a9a9a;
+        }
+
+        #bg img{
+            position: fixed;
+            top:0;
+            width: 100%;
+            height:100%;
+            opacity: 0.6;
+            z-index: -100;
+        }
+        #main{
+            margin: 150px auto 0px;
+            width: 800px;
+            height:500px;
+            overflow: hidden;
+            background: rgba(245, 245, 245);
+            border : 1px solid #9a9a9a7c;
+        }
+        /* 左边 */
+        #left{
+            float : left;
+            width : 248px;
+            height: 500px;
+            border: 1px solid #C9C9C9;
+            border-right:hidden;
+        }
+        /* 左上 */
+        .left-top{
+
+            height : 100px;
+            overflow: hidden;
+        }
+        .left-top .img{
+            float : left;
+            width : 100px;
+            height: 100px;
+            text-align: center;
+
+        }
+        .left-top .img img{
+            padding-top : 10px;
+            width : 80px;
+            height : 80px;
+            border-radius: 50% ;
+        }
+        .left-top .nickname{
+            padding-top: 20px;
+            float : right;
+            height : 100px;
+            width : 148px;
+
+        }
+        .left-top .nickname h1{
+            width : 100px;
+            height: 40px;
+            font-size : 20px;
+            font-weight: 60;
+        }
+        /* 左边主体 */
+        .left-body{
+            /* background-color:red;  */
+            height : 400px;
+            position: relative;
+        }
+        .left-body .friends{
+            float: left;
+            background-color:#ECEFF1;
+            /* color: aqua; */
+            text-align: center;
+            line-height: 50px;
+            font-size: 18px;
+            font-family: '微软雅黑';
+            width : 249px;
+            height: 50px;
+            border-right:1px solid #C9C9C9;
+        }
+
+        .left-body ul{
+
+            height: 350px;
+            width : 250px;
+            position: absolute;
+            bottom : 0;
+        }
+
+        .left-body ul>li{
+            width : 210px;
+            height: 50px;
+            margin-left:20px;
+
+            border-bottom: 1px solid #9a9a9a7c;
+            overflow: hidden;
+        }
+
+        .left-body img{
+            float: left;
+            margin-right: 10px;
+            padding: 5px;
+            width : 30px;
+            height : 30px;
+            border-radius:50%;
+        }
+        <!--.left-body ul p{-->
+            <!--margin-top:5px;-->
+        <!--}-->
+        .left-body ul span{
+            font-size: 12px;
+            color : #9a9a9a;
+        }
+        .left-body ul>li:hover{
+            width : 250px;
+            height: 50px;
+            margin-left: -2px;
+
+            background-color: #00B0FF;
+            color : white;
+        }
+        .left-body ul span:hover{
+            color: white;
+        }
+
+        /* 左下底部 */
+        .left-body .logout{
+            position:absolute;
+            bottom: 0px;
+            left : 0;
+            height: 50px;
+            width: 250px;
+            /* background-color: #00B0FF; */
+        }
+        .left-body .logout a{
+            display: block;
+            width : 60px;
+            margin-left:10px;
+        }
+        .left-body .logout img:hover{
+
+        }
+
+        /* 右边 */
+        #right{
+            float : right;
+            /* background-color:pink; */
+            border:1px solid #C9C9C9;
+            width : 548px;
+            height : 500px;
+        }
+        /* 右边头部 */
+        .right-top{
+            background-color:#ECEFF1;
+            height : 80px;
+            text-align: center;
+            line-height: 80px;
+            font-size: 20px;
+        }
+        /* 右边主体 */
+        .right-body{
+            /* background-color:chartreuse; */
+            height : 370px;
+            overflow:auto;
+        }
+        .right-body div{
+            width:100%;
+            height : 50px;
+            /* border-top:1px solid red; */
+            /* margin-top : 10px; */
+            overflow: hidden;
+        }
+        .right-body .mysend{
+            position: relative;
+            float: right;
+            width: 100%;
+            height: 50px;
+            /* background-color: #00B0FF; */
+
+        }
+        .right-body .mysend img{
+            position:absolute;
+            bottom: 5px;
+            right: 5px;
+            width:40px;
+            height: 40px;
+            border-radius: 50%;
+
+        }
+        .right-body .mysend span{
+            display : inline;
+            float : right;
+            margin-right:55px;
+            margin-top:5px;
+            line-height: 40px;
+            height: 40px;
+            color : white;
+
+            padding: 0 7px ;
+            border-radius: 8px;
+            background-color: #00B0FF;
+        }
+
+
+        .right-body .mysend i{
+            position: absolute;
+            right : 52px;
+            background-color: #00B0FF;
+            top: 19px;
+            display: block;
+            width: 8px;
+            height: 6px;
+            content: '\00a0';
+            -webkit-transform: rotate(29deg) skew(-35deg);
+                    transform: rotate(29deg) skew(-35deg);
+        }
+        .right-body .friendsend{
+            position: relative;
+            float: left;
+            width: 100%;
+            height: 50px;
+        }
+        .right-body .friendsend img{
+            position:absolute;
+            bottom: 5px;
+            left: 5px;
+            width:40px;
+            height: 40px;
+            border-radius: 50%;
+
+        }
+        .right-body .friendsend span{
+            display : inline;
+            float : left;
+            margin-left:55px;
+            margin-top:5px;
+            line-height: 40px;
+            height: 40px;
+            color : white;
+            padding: 0 7px ;
+            border-radius: 8px;
+            background-color: #00B0FF;
+        }
+        .right-body .friendsend i{
+            position: absolute;
+            left:52px;
+            background-color: #00B0FF;
+            top: 19px;
+            display: block;
+            width: 8px;
+            height: 6px;
+            content: '\00a0';
+            -webkit-transform: rotate(29deg) skew(-35deg);
+                    transform: rotate(29deg) skew(-35deg);
+        }
+
+
+        /* 右边底部 */
+        .right-bottom{
+            /* background-color:rgb(13, 14, 13); */
+            height : 50px;
+            text-align: center;
+            font-size:0px;
+            /* overflow: hidden;
+            position: relative; */
+        }
+        .right-bottom #sendMsg{
+            width : 65%;
+            height : 30px;
+            font-size : 16px;
+            outline: none;
+            border:1px solid rgba(128, 128, 128, 0.527);
+            /* border-left:hidden; */
+            border-right:hidden;
+            padding-left:10px;
+
+
+        }
+        .right-bottom #sendbtn{
+            width: 50px;
+            height: 34px;
+            border: 1px solid rgba(128, 128, 128, 0.527);
+            outline: none;
+            background-color:#00B0FF;
+            color:white;
+            font-size: 12px;
+            box-sizing: border-box;
+        }
+        .right-body .mysend{display:none;}
+
+    </style>
+</head>
+<body>
+    <div id = "bg">
+        <img src = "static/images/bejing.jpg">
+    </div>
+    <div id = "main">
+        <!-- 左边 -->
+        <div id = "left">
+            <!-- 左上 -->
+            <div class = 'left-top'>
+                <p class = 'img'><img src="static/images/changetou.jpg"></p>
+                <div class = 'nickname'>
+                    {{rname}}
+                </div>
+
+            </div>
+            <!-- 左边主体 -->
+            <div class = 'left-body'>
+                <p class="friends">
+                    聊天室成员
+                    <hr width='84%'>
+                </p>
+
+                <ul style="overflow:auto;">
+
+                </ul>
+
+                <p class = "logout">
+                    <a><img onclick='quit()' src="static/images/logout.jpg"></a>
+                </p>
+            </div>
+        </div>
+        <!-- 右边 -->
+        <div id = "right">
+            <!-- 右上 -->
+            <div class = 'right-top'>
+                <p>聊天室</p>
+            </div>
+            <!-- 右边主体 -->
+            <div class = 'right-body'>
+                <!--<div>-->
+                    <!--<p class = 'mysend'>-->
+                        <!--<span id="d1"></span>-->
+                        <!--<i></i>-->
+                        <!--<img src = "images/changetou.jpg">-->
+                    <!--</p>-->
+                <!--</div>-->
+                <div>
+                    <p class = "friendsend">
+                        <img src = "static/images/changetou.jpg">
+                        <i></i>
+                        <span>马云：hello</span>
+                    </p>
+                </div>
+            </div>
+            <!-- 右边底下 -->
+            <div class = 'right-bottom'>
+                <input type = "text" id = "sendMsg" maxlength="30">
+                <button  onclick="func()" id="sendbtn">发送</button>
+            </div>
+        </div>
+    </div>
+    <script>
+         $(function(){
+            $.get('/reuser',function(data){
+                var html='';
+                $.each(data,function(i,obj){
+
+                    html+="<li>";
+                    html+="<img  src = 'static/images/changetou.jpg'>";
+                    html+="<p>"+obj.name+"</p>";
+                    html+="<span>2019-01-19</span>"
+                    html+="</li>"
+                    html+='</br>'
+                })
+                $(".left-body ul").append(html)
+            },'json')
+        })
+
+        function func(){
+            var res=$("#sendMsg").val();
+            var str='';
+            str+="<div>";
+            str+="<p class = 'mysend'>";
+            str+="<span id='d1'>";
+            str+=res;
+            str+="</span>";
+            str+="<i></i>";
+            str+="<img src = 'static/images/changetou.jpg'>";
+            str+="</p>";
+            str+="</div>";
+            $('.right-body').append(str)
+            $('.right-body').scrollTop($(".right-body")[0].scrollHeight);
+            $('.right-body .mysend').css({'display':'block'})
+            $('#sendMsg').val('')
+
+            rname=$(".nickname").html()
+            params="rname="+rname
+            res=rname+':'+res
+            console.log(res)
+
+            $.get('/refuse',function(data){
+                $.each(data,function(i,obj){
+                    var address=obj.address
+                    content='name='+res
+                    $.get(address+'/sendall',res,function(data){
+                        var content=data
+                        var str='';
+                        str+="<img src = 'static/images/changetou.jpg'>"
+                        str+='<li></li>'
+                        str+='<span>'
+                        str+=content
+                        str+='</span>'
+                        $('.friendsend').append(str)
+                        $('.friendsend').scrollTop($(".friendsend")[0].scrollHeight);
+                    })
+                })
+            },'json')
+
+        }
+
+        function quit(){
+            rname=$(".nickname").html().trim()
+            console.log(rname)
+            location.href='/delete?name='+rname
+        }
+
+
+    </script>
+</body>
+</html>

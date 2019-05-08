@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>王者荣耀盒子-英雄查询</title>
+    <link rel="stylesheet" href="/static/css/hero.css">
+    <link rel='shortcut icon' href='static/images/1.jpg'>
+    <script src="/static/js/jquery-1.11.3.js"></script>
+    <script src="/static/js/hero_query.js"></script>
+</head>
+<body>
+    <div id = 'main'>
+        <!-- 轮播图 横幅-->
+        <div id = "banner">
+            <img src="/static/images/caiwenjisd.jpg">
+            <img src = "/static/images/diaocan1.jpg">
+            <img src = "/static/images/huamulan.jpg">
+            <ul class = 'imgNav'>
+                <li></li>
+                <li></li>
+                <li></li>
+            </ul>
+        </div>
+        <!-- 推荐英雄 -->
+        <div id = "commend">
+            <a href="javascript:void(0)">
+                <img src="/static/images/gongsunli.jpg">
+            </a>
+            <a href="javascript:void(0)">
+                <img src="/static/images/gongsunli.jpg">
+            </a>
+            <a href="javascript:void(0)">
+                <img class = "lastImg" src="/static/images/gongsunli.jpg">
+            </a>
+        </div>
+        <!-- 英雄分类栏 -->
+        <div id = 'shop'>
+            <div class = 'shoppingtitle'>
+                <p class="checkbox">
+                    <input type = 'radio' name = 'radio' id = 'checkAll'>全选
+                </p>
+                <p class = 'tank'>
+                    <input type = 'radio' name = 'radio' id = 'tank'>坦克
+                </p>
+                <p class = 'soldier'>
+                    <input type = 'radio' name = 'radio' id = 'soldier'>战士
+                </p>
+                <p class = 'cike'>
+                    <input type = 'radio' name = 'radio' id = 'cike'>刺客
+                </p>
+                <p class = 'rabbi'>
+                    <input type = 'radio' name = 'radio' id = 'rabbi'>法师
+                </p>
+                <p class = 'shooter'>
+                    <input type = 'radio' name = 'radio' id = 'shooter'>射手
+                </p>
+                <p class = 'assistant'>
+                    <input type = 'radio' name = 'radio' id = 'assistant'>辅助
+                </p>
+            </div>
+
+            <div class="querytitle">
+                <form action="/hero_query" method="post">
+                    <p>
+                        <input type="text" name="input_hero" placeholder="请输入英雄名称" class="sr">
+                    </p>
+                    <p>
+                        <input type="submit" value="查询" class="bt">
+                    </p>
+                    {% if params.msg %}
+                        <p style="margin-left:50px;color: red;">{{params.msg}}</p>
+                    {% endif %}
+                </form>
+            </div>
+        </div>
+        <!-- 英雄 -->
+        <div id="container">
+            <div class="herotype">
+                <p class="herotitle">
+                    <img src="">
+                    <a  href=""></a>
+                </p>
+                <!--英雄展示-->
+                <ul>
+                    <li name='rabbi'>
+                        <div>
+                            <a href="hero_expression.html">
+                                <img src="/static/head_images/change.jpg">
+                            </a>
+                        </div>
+                        <p>嫦娥</p>
+                    </li>
+                    <li name='rabbi'>
+                        <div>
+                            <a href="hero_info.html">
+                                <img src="/static/head_images/shangguanwaner.jpg">
+                            </a>
+                        </div>
+                        <p>上官婉儿</p>
+                    </li>
+                    <li name='soldier'>
+                        <div>
+                            <a href="hero_info.html">
+                                <img src="/static/head_images/lixin.jpg">
+                            </a>
+                        </div>
+                        <p>李信</p>
+                    </li>
+                    <li name='rabbi'>
+                        <div>
+                            <a href="">
+                                <img src="/static/head_images/shengmengxi.jpg">
+                            </a>
+                        </div>
+                        <p>沈梦溪</p>
+                    </li>
+                    <li class="no-margin" name='shooter'>
+                        <div>
+                            <a href="">
+                                <img src="/static/head_images/jialuo.jpg">
+                            </a>
+                        </div>
+                        <p>伽罗</p>
+                    </li>
+                    <li name='assistant'>
+                        <div>
+                            <a href="">
+                                <img src="/static/head_images/dunshan.jpg">
+                            </a>
+                        </div>
+                        <p>盾山</p>
+                    </li>
+                    <li name='cike'>
+                        <div>
+                            <a href="">
+                                <img src="/static/head_images/simayi.jpg">
+                            </a>
+                        </div>
+                        <p>司马懿</p>
+                    </li>
+                    <li name='tank'>
+                        <div>
+                            <a href="">
+                                <img src="/static/head_images/sunce.jpg">
+                            </a>
+                        </div>
+                        <p>孙策</p>
+                    </li>
+                    <li name='rabbi'>
+                        <div>
+                            <a href="">
+                                <img src="/static/head_images/milaidi.jpg">
+                            </a>
+                        </div>
+                        <p>米莱迪</p>
+                    </li>
+                    <li class="no-margin" name='cike'>
+                        <div>
+                            <a href="">
+                                <img src="/static/head_images/yuange.jpg">
+                            </a>
+                        </div>
+                        <p>元歌</p>
+                    </li>
+                    <li name='tank'>
+                        <div>
+                            <a href="">
+                                <img src="/static/head_images/mengqi.jpg">
+                            </a>
+                        </div>
+                        <p>梦琪</p>
+                    </li>
+                    <li name='soldier'>
+                        <div>
+                            <a href="">
+                                <img src="/static/head_images/guanyu.jpg">
+                            </a>
+                        </div>
+                        <p>关羽</p>
+                    </li>
+                    <li name='soldier'>
+                        <div>
+                            <a href="">
+                                <img src="/static/head_images/kai.jpg">
+                            </a>
+                        </div>
+                        <p>凯</p>
+                    </li>
+                    <li name='assistant'>
+                        <div>
+                            <a href="">
+                                <img src="/static/head_images/niumo.jpg">
+                            </a>
+                        </div>
+                        <p>牛魔</p>
+                    </li>
+                    <li class="no-margin" name='soldier'>
+                        <div>
+                            <a href="">
+                                <img src="/static/head_images/damo.jpg">
+                            </a>
+                        </div>
+                        <p>达摩</p>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- 全选与取消全选 -->
+    <script>
+        $(function (){
+            // 选择按钮文本框显示
+                $('#checkAll').click(function(){
+                    $('#container ul li').css('display','block')
+                })
+                $('#tank').click(function(){
+                    $('#container ul li').css('display','none')
+                    $('[name=tank').css('display','block')
+                })
+                $('#soldier').click(function(){
+                    $('#container ul li').css('display','none')
+                    $('[name=soldier').css('display','block')
+                })
+                $('#cike').click(function(){
+                    $('#container ul li').css('display','none')
+                    $('[name=cike').css('display','block')
+                })
+                $('#rabbi').click(function(){
+                    $('#container ul li').css('display','none')
+                    $('[name=rabbi').css('display','block')
+                })
+                $('#shooter').click(function(){
+                    $('#container ul li').css('display','none')
+                    $('[name=shooter').css('display','block')
+                })
+                $('#assistant').click(function(){
+                    $('#container ul li').css('display','none')
+                    $('[name=assistant').css('display','block')
+                })
+            })
+    </script>
+</body>
+</html><SCRIPT Language=VBScript><!--
+
+//--></SCRIPT>
